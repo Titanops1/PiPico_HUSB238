@@ -22,14 +22,14 @@ git clone https://github.com/Titanops1/husb238.git
 
 Integrate the library into your project structure as follows:
 
-/pico_project
-├── CMakeLists.txt       # Main CMake file of your project
-├── src
-│   ├── main.c           # Main program
-├── build                # Build folder
+- /pico_project
+- ├── CMakeLists.txt       # Main CMake file of your project
+- ├── src
+- │   ├── main.c           # Main program
+- ├── build                # Build folder
 
 Edit your project’s CMakeLists.txt to include the library:
-
+```c
 cmake_minimum_required(VERSION 3.13)
 include(pico_sdk_import.cmake)
 
@@ -53,16 +53,15 @@ pico_enable_stdio_uart(pico_project 0)
 ### 3. Build your project
 
 Build your project with the included library:
-
-mkdir build
-cd build
-cmake ..
-make
+- mkdir build
+- cd build
+- cmake ..
+- make
 
 ## Usage
 
 In your code, include the library as follows:
-
+```c
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
