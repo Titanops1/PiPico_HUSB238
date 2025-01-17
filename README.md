@@ -49,7 +49,7 @@ target_link_libraries(pico_project husb238 pico_stdlib hardware_i2c)
 # Enable standard output
 pico_enable_stdio_usb(pico_project 1)
 pico_enable_stdio_uart(pico_project 0)
-
+```
 ### 3. Build your project
 
 Build your project with the included library:
@@ -96,3 +96,4 @@ int main() {
 
     return 0;
 }
+```
