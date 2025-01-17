@@ -22,11 +22,13 @@ git clone https://github.com/Titanops1/husb238.git
 
 Integrate the library into your project structure as follows:
 
-- /pico_project
-- ├── CMakeLists.txt       # Main CMake file of your project
-- ├── src
-- │   ├── main.c           # Main program
-- ├── build                # Build folder
+```
+/pico_project
+├── CMakeLists.txt       # Main CMake file of your project
+├── src
+│   ├── main.c           # Main program
+├── build                # Build folder
+```
 
 Edit your project’s CMakeLists.txt to include the library:
 ```c
@@ -53,10 +55,13 @@ pico_enable_stdio_uart(pico_project 0)
 ### 3. Build your project
 
 Build your project with the included library:
-- mkdir build
-- cd build
-- cmake ..
-- make
+
+```
+mkdir build
+cd build
+cmake ..
+make
+```
 
 ## Usage
 
@@ -86,12 +91,11 @@ int main() {
 
     husb238_getSupportedVoltages();
 
-    while (true) {
-        husb238_selectPD(PD_SRC_9V);
-        husb238_requestPD();
-        pdresponse = husb238_getPDResponse();
-        src_voltage = husb238_getPDSrcVoltage();
-        src_current = husb238_getPDSrcCurrent();
+    husb238_selectPD(PD_SRC_9V);	//Request to setup the Voltage to 9V
+    husb238_requestPD();			//Run always after a request to change the profile
+
+	while (true) {
+		tight_loop_content();
     }
 
     return 0;
